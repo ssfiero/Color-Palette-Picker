@@ -1,0 +1,63 @@
+/* homepage */
+.login {
+  border: 2px solid black;
+  height: 400px;
+  width: 600px;
+  margin: auto;
+}
+
+/* colorpicker */
+.colorpicker {
+  background-color: #222222;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 2px 2px 2px #444444;
+  color: #FFFFFF;
+  font-size: 12px;
+  position: absolute;
+  width: 460px;
+  display: flex;
+}
+
+#picker {
+  cursor: crosshair;
+  float: left;
+  margin: 10px;
+  border: 0;
+  height: 100%;
+}
+
+.controls {
+  float: right;
+  margin: 10px;
+  height: 300px;
+}
+
+.controls > div {
+  border: 1px solid #2F2F2F;
+  margin-bottom: 5px;
+  overflow: hidden;
+  padding: 5px;
+  height: 56px;
+}
+
+.controls label {
+  float: left;
+}
+
+.controls > div input {
+  background-color: #121212;
+  border: 1px solid #2F2F2F;
+  color: #DDDDDD;
+  float: right;
+  font-size: 10px;
+  height: 14px;
+  margin-left: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 75px;
+}
+
+input[type=text]:not(.browser-default) {
+  margin-top: -10px;
+  border: none;
+}
