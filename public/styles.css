@@ -1,3 +1,11 @@
+/* homepage */
+.login {
+  border: 2px solid black;
+  height: 400px;
+  width: 600px;
+  margin: auto;
+}
+
 /* colorpicker */
 .colorpicker {
   background-color: #222222;
@@ -15,11 +23,13 @@
   float: left;
   margin: 10px;
   border: 0;
+  height: 100%;
 }
 
 .controls {
   float: right;
   margin: 10px;
+  height: 300px;
 }
 
 .controls > div {
@@ -27,6 +37,7 @@
   margin-bottom: 5px;
   overflow: hidden;
   padding: 5px;
+  height: 56px;
 }
 
 .controls label {
@@ -44,4 +55,9 @@
   text-align: center;
   text-transform: uppercase;
   width: 75px;
+}
+
+input[type=text]:not(.browser-default) {
+  margin-top: -10px;
+  border: none;
 }
