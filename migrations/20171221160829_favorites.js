@@ -1,8 +1,8 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTableIfNotExists('favorites', function (table) {
-    table.integer('user').references('users.id');
-    table.integer('project').references('projects.id');
+    table.integer('user_id').references('users.id');
+    table.integer('project_id').references('projects.id');
   });
 };
 
