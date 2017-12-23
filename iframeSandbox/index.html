@@ -6,20 +6,74 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <h1>This is nav bar</h1>
-    <h1>This is my palet and toolbar</h1>
-    <input id='selectedColor' type="color">
-    <p>pick a color</p>
-    <select id='elementSelector'>
-    </select>
-    <p>pick an element</p>
-    <button id='applyColor' type="button">Apply color</button>
-    <br>
-    <br>
+    <div class='row'>
+      <div class='col s4'>
+        <h3>Assign element</h3>
+        <div>
+          <p>CURRENT SELECTION</p>
+          <p>type:</p>
+          <p id='selectedType'></p>
+          <p>id:</p>
+          <p id='selectedId'></p>
+          <p>class:</p>
+          <p id='selectedClass'></p>
+          <p>content:</p>
+          <p id='selectedContent'></p>
+        </div>
+        <div>
+          <p>PARENT SELECTOR</p>
+          <select id='parentSelector'>
+          </select>
+        </div>
+        <div>
+          <p>ATTRIBUTE SELECTOR</p>
+          <select id='attributeSelector'>
+            <option value='background'>Background</option>
+            <option value='text'>Text</option>
+            <option value='border'>Border</option>
+          </select>
+        </div>
+        <div>
+          <p>GROUP ASSIGNMENT</p>
+          <select id='assignGroup'>
+            <option value='primary'>Primary</option>
+            <option value='seondary'>Secondary</option>
+            <option value='highlight'>Highlight</option>
+            <option value='primaryContrast'>Primary Contrast</option>
+            <option value='secondaryContrast'>Secondary Contrast</option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <button id='assign' type="button">Assign</button>
+        </div>
+        <h1>Set color</h1>
+        <div>
+          <p>PICK COLOR</p>
+          <input id='selectedColor' type="color">
+        </div>
+        <div>
+          <p>PICK GROUP</p>
+          <select id='pickGroup'>
+            <option value='primary'>Primary</option>
+            <option value='seondary'>Secondary</option>
+            <option value='highlight'>Highlight</option>
+            <option value='primaryContrast'>Primary Contrast</option>
+            <option value='secondaryContrast'>Secondary Contrast</option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <button id='apply' type="button">Apply</button>
+        </div>
+      </div>
 
-    <iframe src="./sampleSite/sample.html" width="1000" height="600">
-      alternative content for browsers which do not support iframe.
-    </iframe>
+      <div class='col s8'>
+        <iframe src="./sampleSite/sample.html" width="1000" height="600">
+          alternative content for browsers which do not support iframe.
+        </iframe>
+      </div>
+    </div>
   </body>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
