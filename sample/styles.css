@@ -1,0 +1,71 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.row {
+  margin: 0;
+}
+
+.row .sidebar {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", monospace, serif;
+}
+
+.links {
+  height: 30rem;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+  .links {
+    align-items: center;
+  }
+}
+
+.links h3 {
+  font-size: 2rem;
+}
+
+.links a {
+  color: white;
+  font-size: 2rem;
+}
+
+.links a:hover {
+  color: rgba(100,100,100,1);
+}
+
+.row .splash {
+  height: 100vh;
+  padding: 0;
+  position: relative;
+}
+
+
+.overlay {
+  background-color: rgba(100,100,100,1);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-width: 95vh;
+}
+
+.logo img {
+  margin-left: 20%;
+  width: 60%;
+  max-width: 800px;
+}
