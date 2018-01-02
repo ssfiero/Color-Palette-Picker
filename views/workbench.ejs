@@ -1,0 +1,51 @@
+<!-- workbench.ejs page -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- head tags -->
+    <%- include('partials/headinfo') %>
+  </head>
+
+  <body>
+
+    <%- include('partials/navbar') %>
+
+    <section id="toolbar">
+      <h5>Pick a color</h5>
+
+      <div class="colorpicker">
+        <canvas id="picker" var="3" width="300" height="300"></canvas>
+
+        <div class="controls">
+            <div>
+              <label>R</label>
+              <input type="text" id="rVal" />
+            </div>
+            <div>
+              <label>G</label>
+              <input type="text" id="gVal" />
+            </div>
+            <div>
+              <label>B</label>
+              <input type="text" id="bVal" />
+            </div>
+            <div>
+              <label>RGB</label>
+              <input type="text" id="rgbVal" />
+            </div>
+            <div>
+              <label>HEX</label>
+              <input type="text" id="hexVal" />
+            </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- footer tags -->
+    <%- include('partials/footer') %>
+  </body>
+
+</html>

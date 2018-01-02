@@ -13,7 +13,7 @@ $(function(){
   }
 
   // select desired colorwheel
-  var imagesrc="public/colorwheel3.png";
+  var imagesrc="colorwheel3.png";
   image.src = imagesrc;
 
 

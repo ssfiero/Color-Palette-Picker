@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ssfiero/Color-Palette-Picker#readme",
   "dependencies": {
     "bcrypt": "^1.0.3",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",

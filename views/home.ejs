@@ -1,0 +1,52 @@
+<!-- home.ejs page -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- head tags -->
+    <%- include('partials/headinfo') %>
+  </head>
+
+  <body>
+
+    <%- include('partials/navbar') %>
+
+    <section>
+
+      <h5>Login</h5>
+
+      <div class="login">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="name" type="text" class="validate">
+                <label for="name">Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock_open</i>
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Sign In
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </section>
+
+    <li><a href="workbench.html"><h5>Continue without logging in</h5></a></li>
+
+
+    <!-- footer tags -->
+    <%- include('partials/footer') %>
+  </body>
+
+</html>

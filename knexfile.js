@@ -5,7 +5,17 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: 'colorbase'
+      host: 'localhost',
+      database: 'colorbase',
+      user:     'stevenfiero',
+      password: ''
+    },
+    migrations: {
+      tableName: 'knex_migrations',
+      directory: './migrations'
+    },
+    seeds: {
+      directory: './seeds'
     }
   },
 
