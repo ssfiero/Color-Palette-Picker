@@ -6,7 +6,7 @@ module.exports = {
     client: 'pg',
     connection: {
       host: 'localhost',
-      database: 'colorbase',
+      database: 'colorpalette',
       user:     'stevenfiero',
       password: ''
     },

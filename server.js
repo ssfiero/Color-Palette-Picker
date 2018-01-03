@@ -4,7 +4,7 @@ const knex = require('knex')(config);
 const path = require('path');
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 8001;
+const port = process.env.PORT || 8005;
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 
@@ -29,20 +29,16 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 
-let projectsroutes = require('./routes/projectsroutes.js');
-let workbenchroutes = require('./routes/workbenchroutes.js');
-
-
-app.use(projectsroutes);
-app.use(workbenchroutes);
-
+let loginRoute = require('./routes/loginRoute.js');
+let signupRoutes = require('./routes/signupRoutes.js');
+let projectsRoutes = require('./routes/projectsRoutes.js');
+let workbenchRoutes = require('./routes/workbenchRoutes.js');
 
 
 // render home page
 app.get('/', function(req, res) {
   res.render('home.ejs');
 });
-
 
 
 // default password = user's name
@@ -56,23 +52,34 @@ app.use(session({
 }));
 
 
+app.use(function(req, res, next) {
+  console.log('Session is: ', req.session);
+  next();
+});
 
-// app.use(function(req, res, next) {
-//   if(!req.session.user) {
-//     console.log('redirecting');
-//     res.redirect('home')
-//   } else {
-//     console.log('not redirecting');
-//     next();
-//   }
-// });
 
+app.use(loginRoute);
+app.use(signupRoutes);
+
+
+app.use(function(req, res, next) {
+  if(!req.session.username) {
+    console.log('redirecting');
+    res.redirect('/')
+  } else {
+    console.log('not redirecting');
+    next();
+  }
+});
+
+
+app.use(projectsRoutes);
+app.use(workbenchRoutes);
 
 
 app.use(function(req, res) {
   res.sendStatus(404);
 });
-
 
 
 app.listen(port, function() {

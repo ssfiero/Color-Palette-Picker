@@ -10,21 +10,26 @@ const salt = bcrypt.genSaltSync(8);
 
 
 
+router.get('/signup', function(req, res) {
+  res.render('signup.ejs');
+});
 
-router
-.use(function(req, res, next) {
-  console.log('In the login route: ', req.body);
-  next();
-})
-.post('/', function(req, res, next) {
-  console.log('Received login info: ', req.body);
+
+router.post('/signup', function(req, res, next) {
+  console.log('Request body is:', req.body);
+
   knex('users')
     .where('username', req.body.username)
     .then(function(usersData) {
-      user = usersData[0];
-      console.log('Found user in database', user);
 
-      // error if password entered does not match password in database
+      return knex('users')
+      .insert({
+        username: req.body.username,
+        password: bcrypt.hashSync(req.body.password, salt)
+      })
+      .returning('id')
+    })
+    .then(function() {
       if(!bcrypt.compareSync(req.body.password, user.password)) throw 400;
       console.log('Password is valid');
 
@@ -40,8 +45,7 @@ router
       res.sendStatus(500);
     });
 
-})
-
+});
 
 
 
