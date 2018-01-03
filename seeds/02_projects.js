@@ -1,6 +1,4 @@
 const fs = require('fs');
-const sampleHTML = fs.readFileSync('./sample/index.html','utf8');
-const sampleCSS = fs.readFileSync('./sample/styles.css','utf8');
 
 const names = [
   'mySite',
@@ -22,8 +20,6 @@ exports.seed = function(knex, Promise) {
         projects.push({
           user_id: userIds[i].id,
           project_name: names[j],
-          html: sampleHTML,
-          css: sampleCSS,
           palette: JSON.stringify([
             {
               element: '0',

@@ -16,12 +16,13 @@
 
       <h5>Project List</h5>
 
-      <ul>
-        <li>
-        </li>
-        <li>
-        </li>
-      </ul>
+      <div class="collection">
+        <% projects.forEach(function(project) { %>
+          <li>
+            <a href="/workbench" class="collection-item"><%= project.project_name %></a>
+          </li>
+        <% }) %>
+     </div>
 
 
     </section>

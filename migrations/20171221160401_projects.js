@@ -4,8 +4,6 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.integer('user_id').references('users.id');
     table.text('project_name');
-    table.text('html');
-    table.text('css');
     table.text('palette');
   });
 };

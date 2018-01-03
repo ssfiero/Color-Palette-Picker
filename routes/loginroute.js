@@ -10,7 +10,6 @@ const salt = bcrypt.genSaltSync(8);
 
 
 
-
 router
 .use(function(req, res, next) {
   console.log('In the login route: ', req.body);
@@ -29,8 +28,9 @@ router
       console.log('Password is valid');
 
       req.session.username = user.username;
+      req.session.userid = user.id;
 
-      res.render('projects');
+      res.redirect('/projects');
     })
     .catch(function(err) {
       console.log(err);

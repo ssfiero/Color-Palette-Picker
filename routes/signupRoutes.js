@@ -12,7 +12,13 @@ const salt = bcrypt.genSaltSync(8);
 
 router.get('/signup', function(req, res) {
   res.render('signup.ejs');
-});
+})
+
+
+router.use(function(req, res, next) {
+  console.log('In the signup route: ', req.body);
+  next();
+})
 
 
 router.post('/signup', function(req, res, next) {
@@ -35,7 +41,7 @@ router.post('/signup', function(req, res, next) {
 
       req.session.username = user.username;
 
-      res.render('projects');
+      res.redirect('/projects');
     })
     .catch(function(err) {
       console.log(err);

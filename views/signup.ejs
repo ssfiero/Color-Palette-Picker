@@ -33,7 +33,15 @@
                 <label for="password">Password</label>
               </div>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" formaction="/" method="post">Submit
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock_open</i>
+                <input id="confirmPassword" type="password" class="validate">
+                <label for="confirmPassword">Confirm Password</label>
+              </div>
+            </div>
+
+            <button class="btn waves-effect waves-light" type="submit" formaction="/signup" method="post">Submit
               <i class="material-icons right">send</i>
             </button>
           </form>
