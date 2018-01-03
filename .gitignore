@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 node_modules
 .DS_Store
 .gitignore
 .env
+=======
+.gitignore
+node_modules
+>>>>>>> iframesandbox
