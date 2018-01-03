@@ -8,7 +8,6 @@ const port = process.env.PORT || 8001;
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 
-
 // middleware
 let morgan = require('morgan');
 let bodyParser = require('body-parser');
@@ -29,20 +28,18 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 
-let projectsroutes = require('./routes/projectsroutes.js');
-let workbenchroutes = require('./routes/workbenchroutes.js');
+let projectsRoutes = require('./routes/projectsRoutes.js');
+let workbenchRoutes = require('./routes/workbenchRoutes.js');
 
 
-app.use(projectsroutes);
-app.use(workbenchroutes);
-
+app.use(projectsRoutes);
+app.use(workbenchRoutes);
 
 
 // render home page
 app.get('/', function(req, res) {
   res.render('home.ejs');
 });
-
 
 
 // default password = user's name
