@@ -19,6 +19,11 @@ let project = 'awsome-project1';
 
 router
   .use(bodyParser.json({limit: '50MB'}))
+  .use(function(req,res,next){
+    console.log('in relpath route');
+    console.log('path is', req.path);
+    next();
+  })
   .post(/(.*?)/, function (req, res, next) {
     console.log('in post');
     console.log('body is:', req.body);
@@ -26,15 +31,16 @@ router
 
     res.sendStatus(200);
   })
-  .get('/workbench/storeafile', function (req, res, next) {
+  .get('/storeafile', function (req, res, next) {
+    console.log('storing file');
     let ref = db.ref(user);
     let stored = ref.child(project);
     let file = fs.readFileSync('./Apollo.jpg', 'base64');
-    let fileHash = crypto.createHash('md5').update(req.path).digest("hex");
-    stored.set({
-      'Apollo-jpg': file
-    })
-    console.log('stored file:', file);
+    let fileHash = crypto.createHash('md5').update('Apollo.jpg').digest("hex");
+    // stored.set({
+    //   fileHash: file
+    // })
+    // console.log('stored file:', file);
     res.sendStatus(200);
   })
   // .get('/workbench/readafile', function (req, res, next) {
@@ -55,19 +61,19 @@ router
   .get(/(.*?)/, function(req, res, next) {
     console.log('in path route');
     let fileHash = crypto.createHash('md5').update(req.path).digest("hex");
-    console.log('path is:', filePath);
+    console.log('path is:', req.path);
     let ref = db.ref(user);
     let stored = ref.child(project);
-    stored.on("value", function(snapshot) {
-      let fileData = snapshot.val()[fileHash];
-      let buf = Buffer.from(fileData, 'base64');
-      let type = mime.lookup("test.jpg");
-
-      res.contentType(type);
-      res.send(buf);
-    }, function (errorObject) {
-      console.log("The read failed: " + errorObject.code);
-    });
+    // stored.on("value", function(snapshot) {
+    //   let fileData = snapshot.val()['fileHash'];
+    //   let buf = Buffer.from(fileData, 'base64');
+    //   let type = mime.lookup("test.jpg");
+    //
+    //   res.contentType(type);
+    //   res.send(buf);
+    // }, function (errorObject) {
+    //   console.log("The read failed: " + errorObject.code);
+    // });
   });
 
 module.exports = router;
