@@ -43,9 +43,40 @@
       </div>
     </section>
 
+    <section id='project'>
+      <iframe width=800 height=200>
+        Sorry, your browser does not support iframes. Try using chrome.
+      </iframe>
+    </section>
+
+    <div class="blue">
+      <div class="row">
+        <form id="uploadForm">
+          <div class="row">
+            <div class="input-field col s12 white">
+              <input id="projectName" type="text" class="validate" name="projectName">
+              <label for="projectName">Project Name</label>
+            </div>
+          </div>
+          <div class="file-field input-field white s12">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" id="fileSelector" name="fileList" webkitdirectory multiple>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" id="uploadButton" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- footer tags -->
     <%- include('partials/footer') %>
+    <script type="text/javascript" src='/workbench.js'></script>
     <script type="text/javascript" src='/color.js'></script>
   </body>
 

@@ -4,10 +4,10 @@ const knex = require('knex')(config);
 const path = require('path');
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 8005;
+
+const port = process.env.PORT || 8001;
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
-
 
 // middleware
 let morgan = require('morgan');
@@ -29,11 +29,11 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 
+
 let loginRoute = require('./routes/loginRoute.js');
 let signupRoutes = require('./routes/signupRoutes.js');
 let projectsRoutes = require('./routes/projectsRoutes.js');
 let workbenchRoutes = require('./routes/workbenchRoutes.js');
-
 
 // render home page
 app.get('/', function(req, res) {
@@ -50,7 +50,6 @@ app.use(session({
     secure: false
   }
 }));
-
 
 app.use(function(req, res, next) {
   console.log('Session is: ', req.session);
@@ -75,7 +74,6 @@ app.use(function(req, res, next) {
 
 app.use(projectsRoutes);
 app.use(workbenchRoutes);
-
 
 app.use(function(req, res) {
   res.sendStatus(404);
