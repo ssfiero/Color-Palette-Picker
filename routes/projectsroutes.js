@@ -6,7 +6,13 @@ const router = express.Router();
 
 
 router.get('/projects', function(req, res) {
-  res.render('projects.ejs');
+  console.log('In projects route: ', req.session.userid);
+  knex('projects')
+  .where('user_id', req.session.userid)
+  .then(function(projects) {
+    console.log('got project data: ', projects);
+    res.render('projects.ejs', {projects});
+  })
 });
 
 
