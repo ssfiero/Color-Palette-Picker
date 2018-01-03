@@ -7,7 +7,7 @@ module.exports = {
     connection: {
       host: 'localhost',
       database: 'colorpalette',
-      user:     'stevenfiero',
+      user:     '',
       password: ''
     },
     migrations: {

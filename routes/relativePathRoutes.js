@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 const serviceAccount = require("../../json/color-palette-picker.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://color-palette-picker.firebaseio.com"
+  databaseURL: "https://color-palette-picker-48bf1.firebaseio.com"
 });
 const db = admin.database();
 
