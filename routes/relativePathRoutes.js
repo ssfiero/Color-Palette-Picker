@@ -36,11 +36,11 @@ router
     let ref = db.ref(user);
     let stored = ref.child(project);
     let file = fs.readFileSync('./Apollo.jpg', 'base64');
-    let fileHash = crypto.createHash('md5').update('Apollo.jpg').digest("hex");
-    // stored.set({
-    //   fileHash: file
-    // })
-    // console.log('stored file:', file);
+    let fileHash = crypto.createHash('md5').update('/Apollo.jpg').digest("hex");
+    let data = {};
+    data[fileHash] = file;
+    stored.set(data)
+    console.log('stored file:', file);
     res.sendStatus(200);
   })
   // .get('/workbench/readafile', function (req, res, next) {
@@ -64,16 +64,16 @@ router
     console.log('path is:', req.path);
     let ref = db.ref(user);
     let stored = ref.child(project);
-    // stored.on("value", function(snapshot) {
-    //   let fileData = snapshot.val()['fileHash'];
-    //   let buf = Buffer.from(fileData, 'base64');
-    //   let type = mime.lookup("test.jpg");
-    //
-    //   res.contentType(type);
-    //   res.send(buf);
-    // }, function (errorObject) {
-    //   console.log("The read failed: " + errorObject.code);
-    // });
+    stored.on("value", function(snapshot) {
+      let fileData = snapshot.val()[fileHash];
+      let buf = Buffer.from(fileData, 'base64');
+      let type = mime.lookup("test.jpg");
+
+      res.contentType(type);
+      res.send(buf);
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
   });
 
 module.exports = router;

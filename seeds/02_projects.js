@@ -1,12 +1,10 @@
 const fs = require('fs');
-const sampleHTML = fs.readFileSync('./sample/index.html','utf8');
-const sampleCSS = fs.readFileSync('./sample/styles.css','utf8');
 
 const names = [
   'mySite',
-  'my other website',
+  'myOtherWebsite',
   'awsome-project1',
-  '!@#$%^&*()(*&^%)'
+  'awsome-project2'
 ]
 
 exports.seed = function(knex, Promise) {
@@ -22,22 +20,16 @@ exports.seed = function(knex, Promise) {
         projects.push({
           user_id: userIds[i].id,
           project_name: names[j],
-          html: sampleHTML,
-          css: sampleCSS,
-          palette: JSON.stringify([
-            {
-              element: '0',
+          palette: JSON.stringify({
+            primary: {
+              targets: [{element: 1, attribute: 'backgroundColor'}],
               color: 'c743f9'
             },
-            {
-              element: '1',
+            secondary: {
+              targets: [{element: 2, attribute: 'backgroundColor'}],
               color: 'bbdd99'
-            },
-            {
-              element: '2',
-              color: 'ffbb44'
             }
-          ])
+          })
         })
       }
     }
