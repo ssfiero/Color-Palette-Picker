@@ -4,10 +4,20 @@ const knex = require('knex')(config);
 const path = require('path');
 const express = require('express');
 const app = express();
-
 const port = process.env.PORT || 8001;
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
+const admin = require("firebase-admin");
+const serviceAccount = require("../json/color-palette-picker.json");
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://color-palette-picker-48bf1.firebaseio.com"
+});
+
+app.use(function(req, res, next) {
+  res.locals.db = admin.database();
+  next();
+})
 
 // middleware
 let morgan = require('morgan');
@@ -34,6 +44,7 @@ let loginRoute = require('./routes/loginRoute.js');
 let signupRoutes = require('./routes/signupRoutes.js');
 let projectsRoutes = require('./routes/projectsRoutes.js');
 let workbenchRoutes = require('./routes/workbenchRoutes.js');
+let uploadRoutes = require('./routes/uploadRoutes.js');
 
 // render home page
 app.get('/', function(req, res) {
@@ -59,6 +70,7 @@ app.use(function(req, res, next) {
 
 app.use(loginRoute);
 app.use(signupRoutes);
+app.use(uploadRoutes);
 
 
 app.use(function(req, res, next) {

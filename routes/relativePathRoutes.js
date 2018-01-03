@@ -7,12 +7,12 @@ const mime = require('mime-types');
 const admin = require("firebase-admin");
 const crypto = require('crypto');
 const bodyParser = require('body-parser');
-const serviceAccount = require("../../json/color-palette-picker.json");
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://color-palette-picker-48bf1.firebaseio.com"
-});
-const db = admin.database();
+// const serviceAccount = require("../../json/color-palette-picker.json");
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://color-palette-picker-48bf1.firebaseio.com"
+// });
+// const db = admin.database();
 
 let user = 'Sophia';
 let project = 'awsome-project1';

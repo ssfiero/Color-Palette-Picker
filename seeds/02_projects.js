@@ -23,11 +23,11 @@ exports.seed = function(knex, Promise) {
           palette: JSON.stringify({
             primary: {
               targets: [{element: 1, attribute: 'backgroundColor'}],
-              color: 'c743f9'
+              color: '#c743f9'
             },
             secondary: {
               targets: [{element: 2, attribute: 'backgroundColor'}],
-              color: 'bbdd99'
+              color: '#bbdd99'
             }
           })
         })
