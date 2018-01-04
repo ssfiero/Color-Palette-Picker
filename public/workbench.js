@@ -4,24 +4,36 @@ let database = firebase.database();
 
 console.log('looking for:', $('#projectData').data('username'), $('#projectData').data('projectname'), $('#projectData').data('pathhash'));
 
+let initialLoad = true;
 let userRef = database.ref($('#projectData').data('username'));
 let projectRef = userRef.child($('#projectData').data('projectname'));
 let fileRef = projectRef.child($('#projectData').data('pathhash'));
 fileRef.on('value', function(snapshot) {
   console.log(snapshot.val());
   console.log('file changed');
-  $('iframe').first().attr("src", $('iframe').first().attr("src"));
+
+  if(!initialLoad) {
+    // window.location.reload(true);
+    $('iframe').first().attr("src", $('iframe').first().attr("src"));
+
+    $.get("/palettes", function(data, status){
+        palette = JSON.parse(data);
+    });
+  } else {
+    initialLoad = false;
+  }
 });
 
 
-$('#saveButton').click(function(event) {
+function saveData() {
   console.log('clicked button');
   let htmlFile = '<!DOCTYPE html>\n' + '<html>\n' + $('iframe').contents().find('html').html() + '\n</html>';
 
   $.ajax({
     url: '/upload/file',
     data: JSON.stringify({
-      file: window.btoa(htmlFile)
+      file: window.btoa(htmlFile),
+      palette: palette
     }),
     cache: false,
     contentType: 'application/json',
@@ -29,23 +41,23 @@ $('#saveButton').click(function(event) {
     method: 'POST',
     type: 'POST',
   });
-
-  $('iframe').first().attr("src", $('iframe').first().attr("src"));
-})
+}
 
 let domElements;
 
 // create a starter palette or load a saved palette
-let palette = {
-  primary: {
-    targets: [],
-    color: null
-  },
-  secondary: {
-    targets: [],
-    color: null
-  }
-}
+let palette = $('#projectData').data('palette');
+console.log('palette is:', $('#projectData').data('palette'));
+// {
+//   primary: {
+//     targets: [],
+//     color: null
+//   },
+//   secondary: {
+//     targets: [],
+//     color: null
+//   }
+// }
 
 // for every group in the palette, apply it's color to each of it's targets
 function applyPalette() {
@@ -56,6 +68,8 @@ function applyPalette() {
       $(domElements[target.element]).css(target.attribute, palette[group].color);
     })
   })
+
+  saveData();
 }
 
 // set the values of the group selectors to the palette keys
@@ -104,8 +118,11 @@ function populateParentSelector(target) {
   })
 
   elementOptions.forEach(function(element, index) {
+    console.log('adding parent:', truncate(element.outerHTML.trim()));
     $('#elementSelector').append($("<option></option>").attr("value", index).text(truncate(element.outerHTML.trim())));
   })
+
+  $('#elementSelector').material_select()
 }
 
 // update information for the selected element

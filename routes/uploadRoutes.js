@@ -29,11 +29,19 @@ router
     console.log('path hash is:', pathHash);
     console.log('file is:', req.body.file);
 
-    fileRef.set({
-      file: req.body.file
+    knex('projects')
+    .update('palette', req.body.palette)
+    .where({
+      user_id: req.session.userid,
+      project_name: req.session.projectName
     })
+    .then(function() {
+      fileRef.set({
+        file: req.body.file
+      })
 
-    res.sendStatus(200);
+      res.sendStatus(200);
+    })
   })
   .post('/upload/directory', function (req, res, next) {
     console.log('in post');
