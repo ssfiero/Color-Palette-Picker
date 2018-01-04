@@ -122,7 +122,7 @@ function highlight(target) {
   if (previous.element) $(previous.element).css('border', previous.border);
   previous.border = $(target).css('border');
   previous.element = target;
-  if (target) $(target).css('border', '1px solid red');
+  if (target) $(target).css('border', '2px solid red');
 }
 
 // wait for the iFrame to load

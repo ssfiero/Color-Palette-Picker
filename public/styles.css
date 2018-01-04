@@ -18,6 +18,10 @@ li>a {
   color: black;
 }
 
+.nav-wrapper {
+  background-color: #273859;
+}
+
 
 /*
 =======================
@@ -85,3 +89,49 @@ colorpicker
 workbench page
 =======================
 */
+
+.row.work {
+  margin-top: 50px;
+}
+
+#project {
+  height: 800px;
+}
+
+.row .col.s3.toolbar {
+  margin: 0px 20px 0px 60px;
+}
+
+iframe {
+  height: 100%;
+  width: 100%;
+}
+
+.assignEl {
+  margin-top: 0px;
+}
+
+.SetColor {
+  margin-top: 40px;
+}
+
+.row .col.s2, .row .col.s8 {
+  height: 25px;
+}
+
+.row.sel {
+  margin-bottom: 10px;
+}
+
+.selAtr {
+  margin-bottom: 40px;
+}
+
+#tools h5 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #273859;
+}

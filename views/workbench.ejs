@@ -14,81 +14,77 @@
 
     <%- include('partials/navbar') %>
 
-    <!-- <section id="toolbar">
-      <h5>Pick a color</h5>
-
-      <div class="colorpicker">
-        <canvas id="picker" var="3" width="300" height="300"></canvas>
-
-        <div class="controls">
-            <div>
-              <label>R</label>
-              <input type="text" id="rVal" />
-            </div>
-            <div>
-              <label>G</label>
-              <input type="text" id="gVal" />
-            </div>
-            <div>
-              <label>B</label>
-              <input type="text" id="bVal" />
-            </div>
-            <div>
-              <label>RGB</label>
-              <input type="text" id="rgbVal" />
-            </div>
-            <div>
-              <label>HEX</label>
-              <input type="text" id="hexVal" />
-            </div>
-        </div>
-      </div>
-    </section> -->
-
     <section id='tools'>
-      <div class='row'>
-        <div class='col s4'>
-          <h3>Assign element</h3>
-          <div>
-            <p>CURRENT SELECTION</p>
-            <p>type:</p>
-            <p id='selectedType'></p>
-            <p>id:</p>
-            <p id='selectedId'></p>
-            <p>class:</p>
-            <p id='selectedClass'></p>
-            <p>content:</p>
-            <p id='selectedContent'></p>
+      <div class='row work'>
+        <div class='col s3 toolbar'>
+          <h3 class="assignEl">Assign element</h3>
+          <div class="selAtr">
+            <h5>CURRENT SELECTION</h5>
+            <div class="row sel">
+              <div class="col s2">
+                <p>type:</p>
+              </div>
+              <div class="col s8">
+                <p id='selectedType'></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s2">
+                <p>id:</p>
+              </div>
+              <div class="col s8">
+                <p id='selectedId'></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s2">
+                <p>class:</p>
+              </div>
+              <div class="col s8">
+                <p id='selectedClass'></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s2">
+                <p>content:</p>
+              </div>
+              <div class="col s8">
+                <p id='selectedContent'></p>
+              </div>
+            </div>
           </div>
+
           <div>
-            <p>PARENT SELECTOR</p>
+            <h5>PARENT SELECTOR</h5>
             <select id='elementSelector'>
             </select>
           </div>
+
           <div>
-            <p>ATTRIBUTE SELECTOR</p>
+            <h5>ATTRIBUTE SELECTOR</h5>
             <select id='attributeSelector'>
               <option value='backgroundColor'>Background</option>
               <option value='color'>Text</option>
               <option value='borderColor'>Border</option>
             </select>
           </div>
+
           <div>
-            <p>GROUP ASSIGNMENT</p>
+            <h5>GROUP ASSIGNMENT</h5>
             <select id='groupSelector'>
             </select>
           </div>
           <br>
           <div>
-            <button id='assign' type="button">Assign</button>
+            <button id='assign' class="btn waves-effect waves-light" type="button">Assign</button>
           </div>
-          <h3>Set color</h3>
+          <h3 class="SetColor">Set color</h3>
           <div>
-            <p>PICK COLOR</p>
+            <h5>PICK COLOR</h5>
             <input id='selectedColor' type="color">
           </div>
           <div>
-            <p>PICK GROUP</p>
+            <h5>PICK GROUP</h5>
             <select id='pickGroup'>
               <option value='primary'>Primary</option>
               <option value='seondary'>Secondary</option>
@@ -99,25 +95,27 @@
           </div>
           <br>
           <div>
-            <button id='apply' type="button">Apply</button>
+            <button id='apply' class="btn waves-effect waves-light" type="button">Apply</button>
           </div>
         </div>
+
+        <div class="col s8">
+        <section id='project'>
+          <iframe src='/workbench/index.html'>
+            Sorry, your browser does not support iframes. Try using chrome.
+          </iframe>
+        </section>
+      </div>
       </div>
     </section>
 
-    <section id='project'>
-      <iframe src='/workbench/index.html' width=1000 height=600>
-        Sorry, your browser does not support iframes. Try using chrome.
-      </iframe>
-    </section>
 
-    <button id='saveButton'>save</button>
+    <button id='saveButton' class="btn waves-effect waves-light">save</button>
 
 
 
     <!-- footer tags -->
     <%- include('partials/footer') %>
-    <script type="text/javascript" src='/color.js'></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
     <script>
       // Initialize Firebase
