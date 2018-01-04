@@ -21,7 +21,8 @@ $('#saveButton').click(function(event) {
   $.ajax({
     url: '/upload/file',
     data: JSON.stringify({
-      file: window.btoa(htmlFile)
+      file: window.btoa(htmlFile),
+      palette: palette
     }),
     cache: false,
     contentType: 'application/json',
@@ -36,16 +37,18 @@ $('#saveButton').click(function(event) {
 let domElements;
 
 // create a starter palette or load a saved palette
-let palette = {
-  primary: {
-    targets: [],
-    color: null
-  },
-  secondary: {
-    targets: [],
-    color: null
-  }
-}
+let palette = $('#projectData').data('palette');
+console.log('palette is:', $('#projectData').data('palette'));
+// {
+//   primary: {
+//     targets: [],
+//     color: null
+//   },
+//   secondary: {
+//     targets: [],
+//     color: null
+//   }
+// }
 
 // for every group in the palette, apply it's color to each of it's targets
 function applyPalette() {

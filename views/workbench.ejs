@@ -10,7 +10,7 @@
 
   <body>
 
-    <div id='projectData' data-username="<%= username %>" data-projectname="<%= projectName %>" data-pathhash="<%= pathHash %>">
+    <div id='projectData' data-username="<%= username %>" data-projectname="<%= projectName %>" data-pathhash="<%= pathHash %>" data-palette="<%= palette %>">
 
     <%- include('partials/navbar') %>
 
@@ -117,7 +117,6 @@
 
     <!-- footer tags -->
     <%- include('partials/footer') %>
-    <script type="text/javascript" src='/color.js'></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
     <script>
       // Initialize Firebase
