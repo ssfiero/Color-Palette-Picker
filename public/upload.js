@@ -12,7 +12,7 @@ function uploadDirectory(fileList, i, res) {
   reader.readAsDataURL(fileList[i]);
   reader.onload = function () {
     let file = {
-      path: fileList[i].webkitRelativePath,
+      path: fileList[i].webkitRelativePath.slice(fileList[i].webkitRelativePath.indexOf('/')),
       content: reader.result.split(',')[1]
     }
 

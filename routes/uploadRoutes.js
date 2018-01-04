@@ -21,11 +21,11 @@ router
 
     let userRef = res.locals.db.ref(req.session.username);
     let projectRef = userRef.child(req.session.projectName);
-    let pathHash = crypto.createHash('md5').update('website/index.html').digest("hex");
+    let pathHash = crypto.createHash('md5').update('/index.html').digest("hex");
     let fileRef = projectRef.child(pathHash);
     console.log('user is:', req.session.username);
     console.log('project is:', req.session.projectName);
-    console.log('file path is: website/index.html');
+    console.log('file path is: /index.html');
     console.log('path hash is:', pathHash);
     console.log('file is:', req.body.file);
 

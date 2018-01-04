@@ -19,7 +19,7 @@ router
     console.log('in path route');
     let userRef = res.locals.db.ref(req.session.username);
     let projectRef = userRef.child(req.session.projectName);
-    let pathHash = crypto.createHash('md5').update('website' + req.path).digest("hex");
+    let pathHash = crypto.createHash('md5').update(req.path).digest("hex");
     let fileRef = projectRef.child(pathHash);
     console.log('TRYING TO LOAD PATH:');
     console.log('user:', req.session.username);
@@ -29,6 +29,8 @@ router
       let fileData = snapshot.val()['file'];
       let buf = Buffer.from(fileData, 'base64');
       let type = mime.lookup(req.path);
+
+      console.log('file changed');
 
       if (!res.headersSent) {
         res.contentType(type);

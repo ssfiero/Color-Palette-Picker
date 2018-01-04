@@ -10,6 +10,8 @@
 
   <body>
 
+    <div id='projectData' data-username="<%= username %>" data-projectname="<%= projectName %>" data-pathhash="<%= pathHash %>">
+
     <%- include('partials/navbar') %>
 
     <section id="toolbar">
@@ -113,6 +115,22 @@
     <!-- footer tags -->
     <%- include('partials/footer') %>
     <script type="text/javascript" src='/color.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCP9ov_LaUobnfn1ypWbBOa-nrw_qBagSo",
+        authDomain: "color-palette-picker-48bf1.firebaseapp.com",
+        databaseURL: "https://color-palette-picker-48bf1.firebaseio.com",
+        projectId: "color-palette-picker-48bf1",
+        storageBucket: "color-palette-picker-48bf1.appspot.com",
+        messagingSenderId: "766345724682"
+      };
+      app = firebase.initializeApp(config);
+      app.auth().signInAnonymously().catch(function(error) {
+        console.log(error);
+      });
+    </script>
     <script type="text/javascript" src='/workbench.js'></script>
     <!-- <script src="https://cdn.socket.io/socket.io-1.4.4.js"></script>
     <script>
