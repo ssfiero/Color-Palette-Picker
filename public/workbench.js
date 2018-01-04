@@ -4,13 +4,24 @@ let database = firebase.database();
 
 console.log('looking for:', $('#projectData').data('username'), $('#projectData').data('projectname'), $('#projectData').data('pathhash'));
 
+let initialLoad = true;
 let userRef = database.ref($('#projectData').data('username'));
 let projectRef = userRef.child($('#projectData').data('projectname'));
 let fileRef = projectRef.child($('#projectData').data('pathhash'));
 fileRef.on('value', function(snapshot) {
   console.log(snapshot.val());
   console.log('file changed');
-  $('iframe').first().attr("src", $('iframe').first().attr("src"));
+
+  if(!initialLoad) {
+    // window.location.reload(true);
+    $('iframe').first().attr("src", $('iframe').first().attr("src"));
+
+    $.get("/palettes", function(data, status){
+        palette = JSON.parse(data);
+    });
+  } else {
+    initialLoad = false;
+  }
 });
 
 

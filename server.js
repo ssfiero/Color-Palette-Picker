@@ -49,6 +49,7 @@ let projectsRoutes = require('./routes/projectsRoutes.js');
 let uploadRoutes = require('./routes/uploadRoutes.js');
 let workbenchRoutes = require('./routes/workbenchRoutes.js');
 let logoutRoute = require('./routes/logoutRoute.js');
+let paletteRoutes = require('./routes/paletteRoutes.js');
 
 
 // render home page
@@ -75,6 +76,7 @@ app.use(function(req, res, next) {
 
 app.use(loginRoute);
 app.use(signupRoutes);
+app.use(paletteRoutes);
 
 
 app.use(function(req, res, next) {
