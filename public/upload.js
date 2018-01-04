@@ -1,6 +1,3 @@
-let user = 'Sophia';
-let project = 'awsome-project1';
-
 let data = {
   files: [],
   projectName: ''
@@ -40,7 +37,7 @@ $('#uploadButton').click(function(event) {
   uploadPromise.then(function() {
     console.log('posting', data);
     $.ajax({
-      url: '/upload',
+      url: '/upload/directory',
       data: JSON.stringify(data),
       cache: false,
       contentType: 'application/json',

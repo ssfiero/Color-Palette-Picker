@@ -14,12 +14,28 @@ const bodyParser = require('body-parser');
 // });
 // const db = admin.database();
 
-let user = 'Sophia';
-let project = 'awsome-project1';
-
 router
   .use(bodyParser.json({limit: '50MB'}))
-  .post(/(.*?)/, function (req, res, next) {
+  .post('/upload/file', function (req, res, next) {
+    console.log('in post');
+
+    let userRef = res.locals.db.ref(req.session.username);
+    let projectRef = userRef.child(req.session.projectName);
+    let pathHash = crypto.createHash('md5').update('website/index.html').digest("hex");
+    let fileRef = projectRef.child(pathHash);
+    console.log('user is:', req.session.username);
+    console.log('project is:', req.session.projectName);
+    console.log('file path is: website/index.html');
+    console.log('path hash is:', pathHash);
+    console.log('file is:', req.body.file);
+
+    fileRef.set({
+      file: req.body.file
+    })
+
+    res.sendStatus(200);
+  })
+  .post('/upload/directory', function (req, res, next) {
     console.log('in post');
 
     req.body.files.forEach(function(file) {
@@ -54,18 +70,6 @@ router
       console.log('inserted:', data);
       res.sendStatus(200);
     })
-  })
-  .get('/storeafile', function (req, res, next) {
-    console.log('storing file');
-    let ref = db.ref(user);
-    let stored = ref.child(project);
-    let file = fs.readFileSync('./Apollo.jpg', 'base64');
-    let fileHash = crypto.createHash('md5').update('/Apollo.jpg').digest("hex");
-    let data = {};
-    data[fileHash] = file;
-    stored.set(data)
-    console.log('stored file:', file);
-    res.sendStatus(200);
   })
 
 module.exports = router;
