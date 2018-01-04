@@ -1,4 +1,8 @@
-/* homepage */
+/*
+=======================
+homepage
+=======================
+*/
 .login {
   border: 2px solid black;
   height: 500px;
@@ -15,7 +19,11 @@ li>a {
 }
 
 
-/* colorpicker */
+/*
+=======================
+colorpicker
+=======================
+*/
 .colorpicker {
   background-color: #222222;
   border-radius: 5px 5px 5px 5px;
@@ -70,3 +78,10 @@ li>a {
   margin-top: -10px;
   border: none;
 } */
+
+
+/*
+=======================
+workbench page
+=======================
+*/
