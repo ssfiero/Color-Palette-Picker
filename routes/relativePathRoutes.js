@@ -24,25 +24,25 @@ router
     console.log('path is', req.path);
     next();
   })
-  .post(/(.*?)/, function (req, res, next) {
-    console.log('in post');
-    console.log('body is:', req.body);
-    console.log('files is:', req.files);
-
-    res.sendStatus(200);
-  })
-  .get('/storeafile', function (req, res, next) {
-    console.log('storing file');
-    let ref = db.ref(user);
-    let stored = ref.child(project);
-    let file = fs.readFileSync('./Apollo.jpg', 'base64');
-    let fileHash = crypto.createHash('md5').update('/Apollo.jpg').digest("hex");
-    let data = {};
-    data[fileHash] = file;
-    stored.set(data)
-    console.log('stored file:', file);
-    res.sendStatus(200);
-  })
+  // .post(/(.*?)/, function (req, res, next) {
+  //   console.log('in post');
+  //   console.log('body is:', req.body);
+  //   console.log('files is:', req.files);
+  //
+  //   res.sendStatus(200);
+  // })
+  // .get('/storeafile', function (req, res, next) {
+  //   console.log('storing file');
+  //   let ref = db.ref(user);
+  //   let stored = ref.child(project);
+  //   let file = fs.readFileSync('./Apollo.jpg', 'base64');
+  //   let fileHash = crypto.createHash('md5').update('/Apollo.jpg').digest("hex");
+  //   let data = {};
+  //   data[fileHash] = file;
+  //   stored.set(data)
+  //   console.log('stored file:', file);
+  //   res.sendStatus(200);
+  // })
   // .get('/workbench/readafile', function (req, res, next) {
   //   let ref = db.ref(user);
   //   let stored = ref.child(project);
@@ -60,14 +60,18 @@ router
   // })
   .get(/(.*?)/, function(req, res, next) {
     console.log('in path route');
-    let fileHash = crypto.createHash('md5').update(req.path).digest("hex");
-    console.log('path is:', req.path);
-    let ref = db.ref(user);
-    let stored = ref.child(project);
-    stored.on("value", function(snapshot) {
-      let fileData = snapshot.val()[fileHash];
+    let userRef = res.locals.db.ref(req.session.username);
+    let projectRef = userRef.child('hello');//req.session.projectName);
+    let pathHash = crypto.createHash('md5').update('website' + req.path).digest("hex");
+    let fileRef = projectRef.child(pathHash);
+    console.log('TRYING TO LOAD PATH:');
+    console.log('user:', req.session.username);
+    console.log('project:', req.session.projectName);
+    console.log('hash:', pathHash);
+    fileRef.on("value", function(snapshot) {
+      let fileData = snapshot.val()['file'];
       let buf = Buffer.from(fileData, 'base64');
-      let type = mime.lookup("test.jpg");
+      let type = mime.lookup(req.path);
 
       res.contentType(type);
       res.send(buf);

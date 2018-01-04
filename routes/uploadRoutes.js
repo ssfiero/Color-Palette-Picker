@@ -31,6 +31,7 @@ router
         file: file.content
       })
       console.log('uploaded:', file.path);
+      console.log('hash is:', pathHash);
     })
 
     knex('projects')
