@@ -14,6 +14,10 @@ admin.initializeApp({
   databaseURL: "https://color-palette-picker-48bf1.firebaseio.com"
 });
 
+// const io = require('socket.io')();
+//var http = require('http').Server(app);
+//var io = require('socket.io')(app);
+
 app.use(function(req, res, next) {
   res.locals.db = admin.database();
   next();
@@ -95,14 +99,16 @@ app.use(function(req, res) {
 });
 
 
-app.listen(port, function() {
+let server = app.listen(port, function() {
   console.log('Listening on port', port);
 });
 
-
-
-
-
+// let io = require('socket.io').listen(server);
+//
+// io.on('connection', function(socket){
+//   socket.join(req.session.username);
+//   console.log('****** a user connected ********');
+// });
 
 
 module.exports = app;

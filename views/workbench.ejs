@@ -44,15 +44,21 @@
     </section>
 
     <section id='project'>
-      <iframe width=800 height=200>
+      <iframe src='/workbench/index.html' width=1000 height=600>
         Sorry, your browser does not support iframes. Try using chrome.
       </iframe>
     </section>
 
+    <button id='saveButton'>save</button>
+
     <!-- footer tags -->
     <%- include('partials/footer') %>
-    <script type="text/javascript" src='/workbench.js'></script>
     <script type="text/javascript" src='/color.js'></script>
+    <script type="text/javascript" src='/workbench.js'></script>
+    <!-- <script src="https://cdn.socket.io/socket.io-1.4.4.js"></script>
+    <script>
+      var socket = io();
+    </script> -->
   </body>
 
 </html>

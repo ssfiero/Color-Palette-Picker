@@ -19,7 +19,7 @@
       <div class="collection">
         <% projects.forEach(function(project) { %>
           <li>
-            <a href="/workbench" class="collection-item"><%= project.project_name %></a>
+            <a href='/workbench?projectName=<%= project.project_name%>' class="collection-item"><%= project.project_name %></a>
           </li>
         <% }) %>
      </div>

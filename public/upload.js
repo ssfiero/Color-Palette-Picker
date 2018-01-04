@@ -1,6 +1,3 @@
-let user = 'Sophia';
-let project = 'awsome-project1';
-
 let data = {
   files: [],
   projectName: ''
@@ -15,9 +12,8 @@ function uploadDirectory(fileList, i, res) {
   reader.readAsDataURL(fileList[i]);
   reader.onload = function () {
     let file = {
-      type: fileList[i].type,
       path: fileList[i].webkitRelativePath,
-      content: reader.result
+      content: reader.result.split(',')[1]
     }
 
     console.log('adding', file);
@@ -41,7 +37,7 @@ $('#uploadButton').click(function(event) {
   uploadPromise.then(function() {
     console.log('posting', data);
     $.ajax({
-      url: '/upload',
+      url: '/upload/directory',
       data: JSON.stringify(data),
       cache: false,
       contentType: 'application/json',
