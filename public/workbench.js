@@ -25,7 +25,7 @@ fileRef.on('value', function(snapshot) {
 });
 
 
-$('#saveButton').click(function(event) {
+function saveData() {
   console.log('clicked button');
   let htmlFile = '<!DOCTYPE html>\n' + '<html>\n' + $('iframe').contents().find('html').html() + '\n</html>';
 
@@ -41,9 +41,7 @@ $('#saveButton').click(function(event) {
     method: 'POST',
     type: 'POST',
   });
-
-  $('iframe').first().attr("src", $('iframe').first().attr("src"));
-})
+}
 
 let domElements;
 
@@ -70,6 +68,8 @@ function applyPalette() {
       $(domElements[target.element]).css(target.attribute, palette[group].color);
     })
   })
+
+  saveData();
 }
 
 // set the values of the group selectors to the palette keys
@@ -118,8 +118,11 @@ function populateParentSelector(target) {
   })
 
   elementOptions.forEach(function(element, index) {
+    console.log('adding parent:', truncate(element.outerHTML.trim()));
     $('#elementSelector').append($("<option></option>").attr("value", index).text(truncate(element.outerHTML.trim())));
   })
+
+  $('#elementSelector').material_select()
 }
 
 // update information for the selected element
