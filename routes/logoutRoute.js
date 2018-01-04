@@ -5,8 +5,14 @@ const router = express.Router();
 
 
 router
+  .use(function(req, res, next) {
+    console.log('In the logout route. Logged in user is: ', req.session.username);
+    next();
+  })
   .get('/logout', function(req, res, next) {
     delete req.session.username;
+    delete req.session.userid;
+    console.log('In the logout route. Verify user and userid have been removed from session object: ', req.session);
 
     res.redirect('/');
   })

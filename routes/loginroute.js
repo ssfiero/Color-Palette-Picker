@@ -12,11 +12,11 @@ const salt = bcrypt.genSaltSync(8);
 
 router
 .use(function(req, res, next) {
-  console.log('In the login route: ', req.body);
+  console.log('In the login route:', req.body);
   next();
 })
 .post('/', function(req, res, next) {
-  console.log('Received login info: ', req.body);
+  console.log('Received login info:', req.body);
   knex('users')
     .where('username', req.body.username)
     .then(function(usersData) {

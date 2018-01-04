@@ -39,12 +39,13 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 
-
 let loginRoute = require('./routes/loginRoute.js');
 let signupRoutes = require('./routes/signupRoutes.js');
 let projectsRoutes = require('./routes/projectsRoutes.js');
-let workbenchRoutes = require('./routes/workbenchRoutes.js');
 let uploadRoutes = require('./routes/uploadRoutes.js');
+let workbenchRoutes = require('./routes/workbenchRoutes.js');
+let logoutRoute = require('./routes/logoutRoute.js');
+
 
 // render home page
 app.get('/', function(req, res) {
@@ -70,7 +71,6 @@ app.use(function(req, res, next) {
 
 app.use(loginRoute);
 app.use(signupRoutes);
-app.use(uploadRoutes);
 
 
 app.use(function(req, res, next) {
@@ -85,7 +85,10 @@ app.use(function(req, res, next) {
 
 
 app.use(projectsRoutes);
+app.use(uploadRoutes);
 app.use(workbenchRoutes);
+app.use(logoutRoute);
+
 
 app.use(function(req, res) {
   res.sendStatus(404);

@@ -10,20 +10,12 @@ const salt = bcrypt.genSaltSync(8);
 
 
 
-router.get('/signup', function(req, res) {
+router
+.get('/signup', function(req, res) {
   res.render('signup.ejs');
 })
-
-
-router.use(function(req, res, next) {
-  console.log('In the signup route: ', req.body);
-  next();
-})
-
-
-router.post('/signup', function(req, res, next) {
-  console.log('Request body is:', req.body);
-
+.post('/signup', function(req, res, next) {
+  console.log('In the signup route. Request body is:', req.body);
   knex('users')
     .where('username', req.body.username)
     .then(function(usersData) {
@@ -35,11 +27,13 @@ router.post('/signup', function(req, res, next) {
       })
       .returning('id')
     })
-    .then(function() {
-      if(!bcrypt.compareSync(req.body.password, user.password)) throw 400;
-      console.log('Password is valid');
+    .then(function(userId) {
+      console.log('Request username is:', req.body.username);
 
-      req.session.username = user.username;
+      req.session.username = req.body.username;
+      req.session.userid = userId[0];
+      console.log('This is the session object:', req.session);
+      console.log('User id:', userId);
 
       res.redirect('/projects');
     })
@@ -51,7 +45,7 @@ router.post('/signup', function(req, res, next) {
       res.sendStatus(500);
     });
 
-});
+})
 
 
 
