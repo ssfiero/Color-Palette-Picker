@@ -8,6 +8,14 @@ homepage
   background-color: #273859;
 }
 
+h2 {
+  font-family: Madjumbles;
+  /* font-family: Trashtalk; */
+  text-align: center;
+  font-size: 175px;
+  margin-top: 110px;
+}
+
 #signback {
   background-image: url("splat.jpg");
   background-position: top;
@@ -15,7 +23,7 @@ homepage
 }
 
 #loginbox {
-  padding: 12%;
+  padding: 2%;
 }
 
 .login {
@@ -66,7 +74,7 @@ signup page
 }
 
 #signupbox {
-  padding: 12%;
+  padding: 2%;
 }
 
 .login {
