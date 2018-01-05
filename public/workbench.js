@@ -127,10 +127,23 @@ function populateParentSelector(target) {
 
 // update information for the selected element
 function setSelected(target) {
-  $('#selectedType').text($(target).prop('tagName'));
-  $('#selectedId').text($(target).prop('id'));
-  $('#selectedClass').text($(target).prop('class'));
-  $('#selectedContent').text(truncate($(target).html().trim()));
+
+  let info = '';
+
+  if ($(target).prop('tagName').length > 0) info = info + 'TYPE: ' + $(target).prop('tagName');
+
+  if ($(target).prop('id').length > 0) info = info + '<br>ID: ' + $(target).prop('id');
+
+  if ($(target).prop('class').length > 0) info = info + '<br>CLASS: ' + $(target).prop('class');
+
+  if (truncate($(target).html().trim()).length > 0) info = info + '<br>CONTENT: ' + truncate($(target).html().trim());
+
+  $('#selectedInfo').html(info)
+
+  // $('#selectedType').text($(target).prop('tagName'));
+  // $('#selectedId').text($(target).prop('id'));
+  // $('#selectedClass').text($(target).prop('class'));
+  // $('#selectedContent').text(truncate($(target).html().trim()));
 }
 
 // change which iFrame element is highlighted
@@ -176,6 +189,7 @@ $('iframe').on('load', function() {
 
 // assign an elements attribute to a palette group
 $('#assign').click(function() {
+  console.log('clicked assign');
   let element = $(elementOptions[$('#elementSelector').val()]).data('dom-id');
   let attribute = $('#attributeSelector').val();
   let groups = Object.keys(palette);
@@ -191,6 +205,7 @@ $('#assign').click(function() {
     }
   })
 
+  console.log('assigning', element, attribute, 'to', $('#groupSelector').val());
   palette[$('#groupSelector').val()].targets.push({
     element: element,
     attribute: attribute
@@ -210,6 +225,16 @@ $('#apply').click(function() {
 // change selected element when parent selector is changed
 $('#elementSelector').on('change', function () {
   setSelected(elementOptions[$('#elementSelector').val()])
+})
+
+$('#randomize').click(function() {
+  let keys = Object.keys(palette);
+
+  keys.forEach(function(key) {
+    palette[key].color = '#' + Math.floor(Math.random()*16777215).toString(16);
+  })
+
+  applyPalette();
 })
 
 $(document).ready(function() {

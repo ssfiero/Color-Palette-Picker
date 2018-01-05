@@ -42,35 +42,8 @@
           <div class="selAtr">
             <h5>CURRENT SELECTION</h5>
             <div class="row sel">
-              <div class="col s2">
-                <p>type:</p>
-              </div>
-              <div class="col s8">
-                <p id='selectedType'></p>
-              </div>
-            </div>
-            <div class="row sel">
-              <div class="col s2">
-                <p>id:</p>
-              </div>
-              <div class="col s8">
-                <p id='selectedId'></p>
-              </div>
-            </div>
-            <div class="row sel">
-              <div class="col s2">
-                <p>class:</p>
-              </div>
-              <div class="col s8">
-                <p id='selectedClass'></p>
-              </div>
-            </div>
-            <div class="row sel">
-              <div class="col s2">
-                <p>content:</p>
-              </div>
-              <div class="col s8">
-                <p id='selectedContent'></p>
+              <div class="col s12">
+                <p id='selectedInfo'></p>
               </div>
             </div>
           </div>
@@ -97,7 +70,7 @@
           </div>
           <br>
           <div>
-            <button class="btn waves-effect waves-light assign" type="button">Assign</button>
+            <button id='assign' class="btn waves-effect waves-light assign" type="button">Assign</button>
           </div>
           <h4 class="SetColor">Set color</h4>
           <div>
@@ -117,6 +90,7 @@
           <br>
           <div>
             <button id='apply' class="btn waves-effect waves-light" type="button">Apply</button>
+            <button id='randomize' class="btn waves-effect waves-light" type="button">Randomize</button>
           </div>
         </div>
 
@@ -129,9 +103,6 @@
       </div>
       </div>
     </section>
-
-
-
 
     <!-- footer tags -->
     <%- include('partials/footer') %>
@@ -152,10 +123,6 @@
       });
     </script>
     <script type="text/javascript" src='/workbench.js'></script>
-    <!-- <script src="https://cdn.socket.io/socket.io-1.4.4.js"></script>
-    <script>
-      var socket = io();
-    </script> -->
   </body>
 
 </html>
