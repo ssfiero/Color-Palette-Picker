@@ -70,19 +70,19 @@ router
         },
         secondary: {
           targets: [],
-          color: '#FFFFFF'
+          color: '#000000'
         },
         primary_contrast: {
           targets: [],
-          color: '#FFFFFF'
+          color: '#000000'
         },
         secondary_contrast: {
           targets: [],
-          color: '#FFFFFF'
+          color: '#000000'
         },
         highlight: {
           targets: [],
-          color: '#FFFFFF'
+          color: '#000000'
         }
       })
     })
