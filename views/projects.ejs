@@ -8,7 +8,7 @@
     <%- include('partials/headinfo') %>
   </head>
 
-  <body>
+  <body id="projectpage">
 
     <%- include('partials/navbar') %>
 
@@ -24,8 +24,12 @@
         <% }) %>
      </div>
 
-      <button id="newProject" class="btn modal-trigger" data-target="uploadModal">Create New Project</button>
+     <div id="newProject">
+      <button class="btn modal-trigger" data-target="uploadModal">Create New Project<i class="material-icons right">add_circle_outline</i>
+      </button>
+    </div>
     </section>
+
 
     <div id="uploadModal" class="modal">
       <div class="modal-content">
@@ -56,6 +60,7 @@
         <a id='uploadButton' href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Create</a>
       </div>
     </div>
+
 
     <!-- footer tags -->
     <%- include('partials/footer') %>

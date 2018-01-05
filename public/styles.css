@@ -89,25 +89,80 @@ input#username.validate.valid {
 
 /*
 =======================
+projects page
+=======================
+*/
+
+#projectpage {
+  background-image: url("splat.jpg");
+  background-position: top;
+  background-size: cover;
+}
+
+#projectlist {
+  padding: 3%;
+}
+
+#projectlist h5 {
+  border: 2px solid #273859;
+  width: 800px;
+  margin: auto;
+  text-align: center;
+  background-color: #273859;
+  /* opacity: 0.95; */
+  font-size: 30px;
+  color: #fff;
+  height: 50px;
+  padding-top: 8px;
+}
+
+.collection {
+  border: none;
+  margin: 20px 0px 20px 0px;
+}
+
+.collection a.collection-item {
+  border: 2px solid #273859;
+  width: 800px;
+  margin: auto;
+  text-align: center;
+  background-color: #273859;
+  /* opacity: 0.95; */
+  font-size: 22px;
+}
+
+#newProject {
+  text-align: center;
+}
+
+button.btn.modal-trigger {
+  background-color: #b73882;
+}
+
+/*
+=======================
 workbench page
 =======================
 */
 
 .row.work {
-  margin-top: 50px;
+  margin-top: 45px;
 }
 
 #project {
-  height: 800px;
+  height: 846px;
 }
 
 .row .col.s3.toolbar {
   margin: 0px 20px 0px 60px;
+  border: 2px solid black;
+  padding: 1%;
 }
 
 iframe {
   height: 100%;
   width: 100%;
+  border: 2px solid black;
 }
 
 .assignEl {
@@ -127,7 +182,7 @@ iframe {
 }
 
 .selAtr {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 #tools h5 {
@@ -142,4 +197,9 @@ iframe {
 
 .select-wrapper {
   height: 40px;
+}
+
+.select-wrapper input.select-dropdown {
+  height: 30px;
+  /* margin-bottom: 0px; */
 }
