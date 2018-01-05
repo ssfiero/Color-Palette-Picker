@@ -1,13 +1,11 @@
 const config = require('../knexfile.js')['development'];
+// const config = require('../knexfile.js')[process.env.ENVIRONMENT];
 const knex = require('knex')(config);
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(8);
-
-// default password = user's name
-
 
 
 router

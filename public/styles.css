@@ -3,85 +3,88 @@
 homepage
 =======================
 */
+
+.nav-wrapper {
+  background-color: #273859;
+}
+
+#signback {
+  background-image: url("splat.jpg");
+  background-position: top;
+  background-size: cover;
+}
+
+#loginbox {
+  padding: 12%;
+}
+
 .login {
-  border: 2px solid black;
-  height: 500px;
-  width: 600px;
+  border: 2px solid #273859;
+  width: 650px;
   margin: auto;
+  text-align: center;
+  background-color: #273859;
+  /* opacity: 0.95; */
+}
+
+div.row.log {
+  margin: 6% 4%;
+}
+
+input#username.validate.valid {
+  color: #fff;
+}
+
+/* .waves-effect {
+  background-color: #b73882;
+} */
+
+form {
+  margin-bottom: 50px;
+}
+
+div.row.log>h5 {
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 li {
   list-style-type: none;
 }
 
-li>a {
-  color: black;
-}
-
-.nav-wrapper {
-  background-color: #273859;
-}
-
 
 /*
 =======================
-colorpicker
+signup page
 =======================
 */
-.colorpicker {
-  background-color: #222222;
-  border-radius: 5px 5px 5px 5px;
-  box-shadow: 2px 2px 2px #444444;
-  color: #FFFFFF;
-  font-size: 12px;
-  position: absolute;
-  width: 460px;
-  display: flex;
+
+#signUp {
+  background-image: url("splat.jpg");
+  background-position: top;
+  background-size: cover;
 }
 
-#picker {
-  cursor: crosshair;
-  float: left;
-  margin: 10px;
-  border: 0;
-  height: 100%;
+#signupbox {
+  padding: 12%;
 }
 
-.controls {
-  float: right;
-  margin: 10px;
-  height: 300px;
-}
-
-.controls > div {
-  border: 1px solid #2F2F2F;
-  margin-bottom: 5px;
-  overflow: hidden;
-  padding: 5px;
-  height: 56px;
-}
-
-.controls label {
-  float: left;
-}
-
-.controls > div input {
-  background-color: #121212;
-  border: 1px solid #2F2F2F;
-  color: #DDDDDD;
-  float: right;
-  font-size: 10px;
-  height: 14px;
-  margin-left: 6px;
+.login {
+  border: 2px solid #273859;
+  width: 650px;
+  margin: auto;
   text-align: center;
-  text-transform: uppercase;
-  width: 75px;
+  background-color: #273859;
+  /* opacity: 0.95; */
 }
 
-/* input[type=text]:not(.browser-default) {
-  margin-top: -10px;
-  border: none;
-} */
+div.row.log {
+  margin: 6% 4%;
+}
+
+input#username.validate.valid {
+  color: #fff;
+}
 
 
 /*
@@ -130,8 +133,13 @@ iframe {
 #tools h5 {
   font-size: 18px;
   font-weight: bold;
+  /* margin: 0px; */
 }
 
-.btn {
+/* .btn {
   background-color: #273859;
+} */
+
+.select-wrapper {
+  height: 40px;
 }

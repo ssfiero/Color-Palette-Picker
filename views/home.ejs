@@ -8,16 +8,23 @@
     <%- include('partials/headinfo') %>
   </head>
 
-  <body>
+  <body id="signback">
 
-    <%- include('partials/navbar') %>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Vibrantly</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+        </ul>
+      </div>
+    </nav>
 
-    <section>
-
-      <h5>Login</h5>
+    <section id="loginbox">
 
       <div class="login">
-        <div class="row">
+        <div class="row log">
           <form class="col s12">
             <div class="row">
               <div class="input-field col s12">
@@ -39,12 +46,8 @@
             </button>
           </form>
 
-            <h5>Sign up for new account</h5>
-            <a href="/signup">Sign Up</a>
-            <!-- <button class="btn waves-effect waves-light" type="submit" formaction="/signup" method="get">Create New
-              <i class="material-icons right">add_circle_outline</i>
-            </button> -->
-
+          <h5>Sign up for a new account</h5>
+          <a href="/signup" class="btn waves-effect waves-light">Sign Up</a>
 
         </div>
       </div>
