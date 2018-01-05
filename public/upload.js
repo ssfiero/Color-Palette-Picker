@@ -44,6 +44,9 @@ $('#uploadButton').click(function(event) {
       processData: false,
       method: 'POST',
       type: 'POST',
+    })
+    .done(function() {
+      location.reload();
     });
     $('#uploadForm')[0].reset();
   })

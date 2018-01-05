@@ -71,18 +71,6 @@ router
         secondary: {
           targets: [],
           color: '#000000'
-        },
-        primary_contrast: {
-          targets: [],
-          color: '#000000'
-        },
-        secondary_contrast: {
-          targets: [],
-          color: '#000000'
-        },
-        highlight: {
-          targets: [],
-          color: '#000000'
         }
       })
     })
@@ -92,5 +80,18 @@ router
       res.sendStatus(200);
     })
   })
+
+  // primary_contrast: {
+  //   targets: [],
+  //   color: '#000000'
+  // },
+  // secondary_contrast: {
+  //   targets: [],
+  //   color: '#000000'
+  // },
+  // highlight: {
+  //   targets: [],
+  //   color: '#000000'
+  // }
 
 module.exports = router;
