@@ -9,7 +9,8 @@ homepage
 }
 
 h2 {
-  font-family: Madjumbles;
+  /* font-family: Madjumbles; */
+  font-family: EatnCake;
   /* font-family: Trashtalk; */
   text-align: center;
   font-size: 175px;
@@ -23,7 +24,7 @@ h2 {
 }
 
 #loginbox {
-  padding: 2%;
+  padding: 1%;
 }
 
 .login {
@@ -74,7 +75,7 @@ signup page
 }
 
 #signupbox {
-  padding: 2%;
+  padding: 1%;
 }
 
 .login {
