@@ -71,6 +71,18 @@ router
         secondary: {
           targets: [],
           color: '#FFFFFF'
+        },
+        primary_contrast: {
+          targets: [],
+          color: '#FFFFFF'
+        },
+        secondary_contrast: {
+          targets: [],
+          color: '#FFFFFF'
+        },
+        highlight: {
+          targets: [],
+          color: '#FFFFFF'
         }
       })
     })

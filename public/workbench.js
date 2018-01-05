@@ -65,7 +65,7 @@ function applyPalette() {
 
   groups.forEach(function(group) {
     palette[group].targets.forEach(function (target) {
-      $(domElements[target.element]).css(target.attribute, palette[group].color);
+      if (palette[group].color) $(domElements[target.element]).css(target.attribute, palette[group].color);
     })
   })
 
