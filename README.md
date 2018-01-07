@@ -1,6 +1,6 @@
 # Vibrantly
 
-**Vibrantly** is a web app to help developers apply color palettes to their websites.
+> **Vibrantly** is a web app to help developers apply color palettes to their websites.
 
 Watch the trailer:
 
@@ -11,22 +11,21 @@ Watch the trailer:
 
 Deployed site: https://vibrantly.herokuapp.com/
 
+Production Repo: https://github.com/vibrantly-team
+
+Development Repo: https://github.com/ssfiero/Color-Palette-Picker
+
 Issue tracker: https://github.com/ssfiero/Color-Palette-Picker#boards?repos=114929145
 
 
 ## Build Tools
 
-Front End:
-* EJS, Materialize
+**Front End:** EJS, Materialize
 
-CRUD operations:
-* Express
+**CRUD operations:** Express
 
-Back End Databases:
-* PostgreSQL, Firebase, Knex.js
+**Back End Databases:** PostgreSQL, Firebase, Knex.js
 
-Middleware:
-* Express-Session, bCrypt, body-parser
+**Middleware:** Express-Session, bCrypt, body-parser
 
-Project Management:
-* ZenHub - integrated with GitHub
+**Project Management:** ZenHub - integrated with GitHub
