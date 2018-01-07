@@ -13,7 +13,7 @@ Deployed site: https://vibrantly.herokuapp.com/
 
 Production Repo: https://github.com/vibrantly-team
 
-Development Repo: https://github.com/ssfiero/Color-Palette-Picker
+Development Repo: https://github.com/ssfiero/Vibrantly
 
 Issue tracker: https://github.com/ssfiero/Color-Palette-Picker#boards?repos=114929145
 
