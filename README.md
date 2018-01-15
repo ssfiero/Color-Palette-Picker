@@ -15,7 +15,7 @@ Production Repo: https://github.com/vibrantly-team
 
 Development Repo: https://github.com/ssfiero/Vibrantly
 
-Issue tracker: https://github.com/ssfiero/Color-Palette-Picker#boards?repos=114929145
+Issue tracker: https://github.com/ssfiero/Vibrantly#boards?repos=114929145
 
 
 ## Build Tools
