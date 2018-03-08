@@ -15,7 +15,7 @@ Production Repo: https://github.com/vibrantly-team
 
 Development Repo: https://github.com/ssfiero/Vibrantly
 
-Issue tracker: https://github.com/ssfiero/Vibrantly#boards?repos=114929145
+Project/Issue tracker: https://github.com/ssfiero/Vibrantly#boards?repos=114929145
 
 
 ## Build Tools
@@ -29,3 +29,14 @@ Issue tracker: https://github.com/ssfiero/Vibrantly#boards?repos=114929145
 **Middleware:** Express-Session, bCrypt, body-parser
 
 **Project Management:** ZenHub - integrated with GitHub
+
+## Application Screenshots
+
+Home
+![Alt](/public/v1.png)
+
+Projects
+![Alt](/public/v2.png)
+
+Workbench
+![Alt](/public/v3.png)
