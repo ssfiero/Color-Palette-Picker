@@ -36,13 +36,13 @@ Project/Issue tracker: https://github.com/ssfiero/Vibrantly#boards?repos=1149291
 
 Home
 
-<img src="/public/v1.png" alt="alt text" width="50%" height="50%">
+<img src="/public/v1.png" alt="alt text" width="75%" height="75%">
 
 Projects
 
-<img src="/public/v2.png" alt="alt text" width="50%" height="50%">
+<img src="/public/v2.png" alt="alt text" width="75%" height="75%">
 
 
 Workbench
 
-<img src="/public/v3.png" alt="alt text" width="50%" height="50%">
+<img src="/public/v3.png" alt="alt text" width="75%" height="75%">
