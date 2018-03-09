@@ -1,6 +1,8 @@
 # Vibrantly
 
-> **Vibrantly** is a web app to help developers apply color palettes to their websites.
+**Vibrantly** is a web app to help developers apply color palettes to their websites.
+
+Team project members: Gavin Loughridge and Steven Fiero
 
 Watch the trailer:
 
@@ -33,10 +35,14 @@ Project/Issue tracker: https://github.com/ssfiero/Vibrantly#boards?repos=1149291
 ## Application Screenshots
 
 Home
-![Alt](/public/v1.png)
+
+<img src="/public/v1.png" alt="alt text" width="50%" height="50%">
 
 Projects
-![Alt](/public/v2.png)
+
+<img src="/public/v2.png" alt="alt text" width="50%" height="50%">
+
 
 Workbench
-![Alt](/public/v3.png)
+
+<img src="/public/v3.png" alt="alt text" width="50%" height="50%">
